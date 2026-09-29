@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4.1 — SVG House and Garden</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f5f3eb;
+            color: #253b32;
+        }
+
+        svg {
+            display: block;
+            max-width: 800px;
+            width: 100%;
+            height: auto;
+            margin: 20px auto;
+            border: 2px solid #253b32;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My SVG House and Garden</h1>
+    <p>A picture made using SVG shapes.</p>
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 800 500"
+         role="img"
+         aria-labelledby="picture-title picture-description">
+
+        <title id="picture-title">A house and colourful garden</title>
+        <desc id="picture-description">
+            A house with two matching windows, a chimney,
+            a curved garden path, a tree, flowers and sunshine.
+        </desc>
+
+        <!-- RECTANGLE: sky -->
+        <rect x="0" y="0" width="800" height="500"
+              fill="#c6eaff"/>
+
+        <!-- CIRCLE: sun -->
+        <circle cx="680" cy="80" r="40"
+                fill="#ffd34e" stroke="#e9a523" stroke-width="3"/>
+
+        <!-- ELLIPSES: clouds -->
+        <ellipse cx="160" cy="90" rx="75" ry="25" fill="white"/>
+        <ellipse cx="220" cy="75" rx="50" ry="30" fill="white"/>
+
+        <!-- RECTANGLE: lawn -->
+        <rect x="0" y="350" width="800" height="150"
+              fill="#8bc979"/>
+
+        <!-- PATH: curved garden path -->
+        <path d="M 380 350 Q 480 420 350 500 L 470 500
+                 Q 530 420 420 350 Z"
+              fill="#d8b994" stroke="#a18262" stroke-width="2"/>
+
+        <!-- RECTANGLE: chimney -->
+        <rect x="465" y="140" width="35" height="90"
+              fill="#b36550" stroke="#593e36" stroke-width="3"/>
+
+        <!-- RECTANGLE: house wall -->
+        <rect x="250" y="220" width="300" height="160"
+              fill="#ffe0a6" stroke="#593e36" stroke-width="3"/>
+
+        <!-- POLYGON: roof -->
+        <polygon points="220,220 400,110 580,220"
+                 fill="#bf6555" stroke="#593e36"
+                 stroke-width="4" stroke-linejoin="round"/>
+
+        <!-- GROUP: both windows inherit the same styling.
+             Each inner group positions one window. -->
+        <g id="windows" fill="#b4e5f5"
+           stroke="#36566b" stroke-width="4">
+
+            <g transform="translate(280,250)">
+                <rect x="0" y="0" width="60" height="60"/>
+                <line x1="30" y1="0" x2="30" y2="60"/>
+                <line x1="0" y1="30" x2="60" y2="30"/>
+            </g>
+
+            <g transform="translate(460,250)">
+                <rect x="0" y="0" width="60" height="60"/>
+                <line x1="30" y1="0" x2="30" y2="60"/>
+                <line x1="0" y1="30" x2="60" y2="30"/>
+            </g>
+        </g>
+
+        <!-- RECTANGLE: door -->
+        <rect x="370" y="290" width="60" height="90"
+              rx="5" fill="#886044"
+              stroke="#593e36" stroke-width="3"/>
+
+        <!-- CIRCLE: door handle -->
+        <circle cx="417" cy="337" r="4" fill="#ffe082"/>
+
+        <!-- RECTANGLE and CIRCLE: tree -->
+        <rect x="115" y="270" width="30" height="110"
+              fill="#89603e"/>
+        <circle cx="130" cy="245" r="65"
+                fill="#478c51" stroke="#326d3a" stroke-width="3"/>
+
+        <!-- LINE: flower stem -->
+        <line x1="620" y1="360" x2="620" y2="420"
+              stroke="#347444" stroke-width="5"/>
+
+        <!-- ELLIPSES: flower petals -->
+        <g fill="#ee8eae" stroke="#b94c79" stroke-width="2">
+            <ellipse cx="605" cy="360" rx="15" ry="8"/>
+            <ellipse cx="635" cy="360" rx="15" ry="8"/>
+            <ellipse cx="620" cy="345" rx="8" ry="15"/>
+            <ellipse cx="620" cy="375" rx="8" ry="15"/>
+        </g>
+
+        <circle cx="620" cy="360" r="9" fill="#ffdc65"/>
+
+        <!-- POLYLINE: open zigzag garden border -->
+        <polyline points="40,450 70,430 100,450 130,430 160,450"
+                  fill="none" stroke="#ffffff"
+                  stroke-width="5" stroke-linejoin="round"/>
+
+        <!-- TEXT: garden label -->
+        <text x="560" y="470" font-size="24"
+              font-family="Arial" fill="#253b32">
+            My Garden
+        </text>
+    </svg>
+
+    <!-- AI acknowledgement: update to reflect your actual use. -->
+    <p>
+        AI acknowledgement: I used AI to help generate
+        the initial SVG code.
+    </p>
+</body>
+</html>
