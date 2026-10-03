@@ -25,4 +25,7 @@ d3.csv("data/tvBrandCount.csv", d => {
 
 // We will build this function in the next exercise.
 function drawBarChart(data) {
+    svg.selectAll("rect")
+        .data(data)
+        .join("rect");
 }
