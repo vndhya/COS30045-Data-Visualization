@@ -25,7 +25,16 @@ d3.csv("data/tvBrandCount.csv", d => {
 
 // We will build this function in the next exercise.
 function drawBarChart(data) {
+    const barHeight = 20;
+
     svg.selectAll("rect")
         .data(data)
-        .join("rect");
+        .join("rect")
+        .attr("class", d => {
+            console.log(d);
+            return `bar bar-${d.count}`;
+        })
+        .attr("width", d => d.count)
+        .attr("height", barHeight)
+        .attr("fill", "blue");
 }
