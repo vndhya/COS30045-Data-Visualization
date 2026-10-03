@@ -4,7 +4,7 @@ const svg = d3.select(".responsive-svg-container")
     .attr("viewBox", "0 0 1200 1600")
     .style("border", "1px solid black");
 
-// Draw a blue rectangle.
+// Draw the test rectangle.
 svg.append("rect")
     .attr("x", 10)
     .attr("y", 10)
@@ -12,7 +12,7 @@ svg.append("rect")
     .attr("height", 16)
     .attr("fill", "blue");
 
-    // Load the CSV and convert count from text to a number.
+// Load the CSV and convert count to a number.
 d3.csv("data/tvBrandCount.csv", d => {
     return {
         brand: d.brand,
@@ -20,6 +20,17 @@ d3.csv("data/tvBrandCount.csv", d => {
     };
 }).then(data => {
     console.log(data);
+    console.log(data.length);
+    console.log(d3.max(data, d => d.count));
+    console.log(d3.min(data, d => d.count));
+    console.log(d3.extent(data, d => d.count));
+
+    // Pass the loaded data to the chart function.
+    drawBarChart(data);
 }).catch(error => {
-    console.error("Could not load CSV:", error);
+    console.error("Error:", error);
 });
+
+// We will build this function in the next exercise.
+function drawBarChart(data) {
+}
