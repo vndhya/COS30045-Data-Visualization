@@ -294,3 +294,17 @@ footer p {
     background-color: #2c1724;
     border-radius: 10px;
 }
+
+.responsive-svg-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.responsive-svg-container svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
