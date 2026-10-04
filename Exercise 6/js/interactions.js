@@ -57,3 +57,81 @@ function populateFilters(data) {
             .attr("height", d => innerHeight - yScale(d.length));
     }
 }
+// Create the scatterplot tooltip.
+function createTooltip() {
+    innerChartS.selectAll(".tooltip").remove();
+
+    const tooltip = innerChartS.append("g")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("pointer-events", "none");
+
+    // Pink background with rounded corners.
+    tooltip.append("rect")
+        .attr("width", tooltipWidth)
+        .attr("height", tooltipHeight)
+        .attr("rx", 3)
+        .attr("ry", 3)
+        .attr("fill", barColor)
+        .attr("fill-opacity", 0.95);
+
+    // Screen size will be inserted when hovering.
+    tooltip.append("text")
+        .attr("x", tooltipWidth / 2)
+        .attr("y", tooltipHeight / 2)
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "middle")
+        .attr("fill", bodyBackgroundColor)
+        .style("font-size", "14px")
+        .style("font-weight", "bold");
+}
+
+// Show and hide the tooltip when hovering over dots.
+function handleMouseEvents() {
+    const tooltip = innerChartS.select(".tooltip");
+
+    innerChartS.selectAll("circle.dot")
+        .on("mouseenter", (event, d) => {
+            // Display this TV's screen size.
+            tooltip.select("text")
+                .text(d.screenSize);
+
+            // Read the position of the hovered circle.
+            const cx = +event.currentTarget.getAttribute("cx");
+            const cy = +event.currentTarget.getAttribute("cy");
+
+            // Centre the tooltip above the circle.
+            // Keep it within the chart's left and right edges.
+            const tooltipX = Math.max(
+                0,
+                Math.min(
+                    innerWidth - tooltipWidth,
+                    cx - tooltipWidth / 2
+                )
+            );
+
+            let tooltipY = cy - tooltipHeight - 10;
+
+            // Put it below the circle if there is no room above.
+            if (tooltipY < 0) {
+                tooltipY = cy + 10;
+            }
+
+            tooltip.interrupt();
+
+            tooltip
+                .attr(
+                    "transform",
+                    `translate(${tooltipX}, ${tooltipY})`
+                )
+                .raise()
+                .transition()
+                .duration(200)
+                .style("opacity", 1);
+        })
+        .on("mouseleave", () => {
+            tooltip
+                .interrupt()
+                .style("opacity", 0);
+        });
+}
