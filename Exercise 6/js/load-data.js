@@ -14,7 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         drawHistogram(data);
         populateFilters(data);
+        drawScatterplot(data);
+
+        // Exercise 6.4: enable after creating these functions.
+        // createTooltip();
+        // handleMouseEvents();
     }).catch(error => {
-        console.error("Error loading or drawing histogram:", error);
+        console.error("Error loading or drawing charts:", error);
     });
 });
