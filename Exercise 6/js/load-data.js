@@ -12,13 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("TV data:", data);
         console.log("Number of TV models:", data.length);
 
+        // Draw the histogram and activate its filters.
         drawHistogram(data);
         populateFilters(data);
-        drawScatterplot(data);
 
-        // Exercise 6.4: enable after creating these functions.
-        // createTooltip();
-        // handleMouseEvents();
+        // Draw the scatterplot before activating its tooltip.
+        drawScatterplot(data);
+        createTooltip();
+        handleMouseEvents();
     }).catch(error => {
         console.error("Error loading or drawing charts:", error);
     });
