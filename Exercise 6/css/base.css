@@ -55,3 +55,36 @@ footer {
 footer p {
     margin: 0;
 }
+
+#filters_screen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#filters_screen .filter {
+    min-width: 75px;
+    padding: 10px 18px;
+    border: 1px solid #ff9ed1;
+    border-radius: 6px;
+    background-color: #2b1826;
+    color: #ff9ed1;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#filters_screen .filter:hover {
+    background-color: #49233d;
+}
+
+#filters_screen .filter.active {
+    background-color: #ff9ed1;
+    color: #121014;
+}
+
+#filters_screen .filter:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
