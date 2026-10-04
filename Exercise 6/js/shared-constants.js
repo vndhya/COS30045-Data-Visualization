@@ -30,3 +30,17 @@ const filters_screen = [
     { id: "LCD", label: "LCD", isActive: false },
     { id: "OLED", label: "OLED", isActive: false }
 ];
+
+// Shared scatterplot group for the tooltip exercise.
+let innerChartS;
+
+// Tooltip dimensions for Exercise 6.4.
+const tooltipWidth = 65;
+const tooltipHeight = 32;
+
+// Separate scales for the scatterplot.
+const xScaleS = d3.scaleLinear();
+const yScaleS = d3.scaleLinear();
+
+// Colours represent screen technology.
+const colorScale = d3.scaleOrdinal();
