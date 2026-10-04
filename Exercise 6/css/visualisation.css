@@ -1,0 +1,30 @@
+.responsive-svg-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 24px auto;
+    background-color: #121014;
+}
+
+.responsive-svg-container svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: #f8edf3;
+}
+
+.axis-label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    fill: #f8edf3;
+}
+
+.axis {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+}
+
+@media screen and (max-width: 596px) {
+    .responsive-svg-container {
+        margin-bottom: 20px;
+    }
+}
