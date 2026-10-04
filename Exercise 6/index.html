@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Energy Consumption | Exercise 6</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/visualisation.css">
+</head>
+
+<body>
+    <header>
+        <h1>TV Energy Consumption</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>How much energy do TVs consume?</h2>
+            <p>
+                This histogram groups TV models by their labelled annual
+                energy consumption. Each bar shows the number of models
+                within an energy consumption range.
+            </p>
+        </section>
+
+        <div id="histogram" class="responsive-svg-container"></div>
+
+        <section class="source">
+            <h2>Data source</h2>
+            <p>
+                <a href="https://data.gov.au/data/dataset/energy-rating-for-household-appliances">
+                    Energy Rating Data for household appliances – Televisions
+                </a>
+                <br>
+                January 2026 dataset supplied for this exercise.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vindhya Jeevanantham — Data Visualisation Week 6</p>
+    </footer>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/load-data.js"></script>
+    <script src="js/shared-constants.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/histogram.js"></script>
+</body>
+</html>
