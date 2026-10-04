@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Number of TV models:", data.length);
 
         drawHistogram(data);
+        populateFilters(data);
     }).catch(error => {
         console.error("Error loading or drawing histogram:", error);
     });
