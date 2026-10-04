@@ -80,5 +80,25 @@ function drawLineChart(data) {
         .style("font-size", "16px")
         .text("Average electricity spot price ($/MWh)");
 
-    // The line will be added in the next step.
+    // Draw the scatter plot points.
+    innerChart.selectAll(".point")
+        .data(data)
+        .join("circle")
+        .attr("class", "point")
+        .attr("r", 3)
+        .attr("cx", d => xScale(d.year))
+        .attr("cy", d => yScale(d.averagePrice))
+        .attr("fill", "green");
+
+    // Generate line coordinates using the scales.
+    const lineGenerator = d3.line()
+        .x(d => xScale(d.year))
+        .y(d => yScale(d.averagePrice));
+
+    // Connect the points with a green line.
+    innerChart.append("path")
+        .attr("d", lineGenerator(data))
+        .attr("fill", "none")
+        .attr("stroke", "green")
+        .attr("stroke-width", 2);
 }
