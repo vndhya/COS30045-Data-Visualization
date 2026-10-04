@@ -15,18 +15,34 @@
     </header>
 
     <main>
+        <!-- Exercises 6.1 and 6.2: histogram and filters. -->
         <section>
             <h2>How much energy do TVs consume?</h2>
             <p>
                 This histogram groups TV models by their labelled annual
                 energy consumption. Each bar shows the number of models
                 within an energy consumption range.
+                Select a screen technology to filter the histogram.
             </p>
+
+            <div id="filters_screen"
+                 role="group"
+                 aria-label="Filter histogram by screen technology"></div>
+
+            <div id="histogram" class="responsive-svg-container"></div>
         </section>
 
-     <div id="filters_screen" role="group" aria-label="Filter by screen technology"></div>
+        <!-- Exercise 6.3: scatterplot. -->
+        <section>
+            <h2>Energy consumption and star ratings</h2>
+            <p>
+                Each dot represents a TV model. Its position shows its
+                star rating and labelled annual energy consumption.
+                Colours identify its screen technology.
+            </p>
 
-<div id="histogram" class="responsive-svg-container"></div>
+            <div id="scatterplot" class="responsive-svg-container"></div>
+        </section>
 
         <section class="source">
             <h2>Data source</h2>
@@ -44,10 +60,12 @@
         <p>&copy; 2026 Vindhya Jeevanantham — Data Visualisation Week 6</p>
     </footer>
 
+    <!-- Load D3 before the exercise scripts. -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="js/load-data.js"></script>
     <script src="js/shared-constants.js"></script>
     <script src="js/interactions.js"></script>
     <script src="js/histogram.js"></script>
+    <script src="js/scatterplot.js"></script>
 </body>
 </html>
